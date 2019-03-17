@@ -122,7 +122,7 @@ A API fornece muitas informaçõess sobre o ativo Bitcoin.
 Onde está a chave privada do Bitcoin? A chave privada é protegida por multi assinaturas dentro da Mixin Network e então é invísivel para o usuário. O ativo Bitcoin pode ser sacado somente para outro endereço quando o usuário fornece a correta assinatura RSA private key, código PIN and Session key.
 
 ### Não apenas Bitcoin, mas também Ethereum, EOS
-A conta não contem somente uma carteira Bitcoin, mas também possui carteira para Ethereum, EOS, etc. [Lista] completa de blockchains suportadas (https://mixin.one/network/chains). Todos os tokens ERC20 e EOS são suportados pela conta.
+A conta não contem somente uma carteira Bitcoin, mas também possui carteira para Ethereum, EOS, etc. [Lista](https://mixin.one/network/chains) completa de blockchains suportadas. Todos os tokens ERC20 e EOS são suportados pela conta.
 
 Criar a carteira de outro ativo é o mesma coisa do que criar uma de Bitcoin, apenas leia o ativo.
 #### Mixin Network support cryptocurrencies (2019-02-19)
