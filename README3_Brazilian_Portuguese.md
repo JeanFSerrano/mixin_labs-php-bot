@@ -77,7 +77,7 @@ OGnv4SY6cLo/xFUf9fx0nmxfYXLzKE63vA9Ii5ZPq39bYK/2R5iKGvHn+OcTAQ2q
 )
 ```
 
-Agora você precisa manter as informações da conta cuidasosamente. Essas informações são exigidas para ler o balanço e outros conteúdos da conta
+Agora você precisa manter as informações da conta cuidadosamente. Essas informações são exigidas para ler o balanço e outros conteúdos da conta
 ### Criar uma carteira Bitcoin para a conta na Mixin Network
 A carteira de Bitcoin não é gerada automaticamente ao mesmo tempo quando nós criamos a conta na Mixin Network. Leia o Ativo Bitcoin uma vez para gerar a Carteira Bitcoin.
 ```php
@@ -109,7 +109,7 @@ Array
 ```
 
 
-A API fornece muitas informaçõess sobre o ativo Bitcoin.
+A API fornece muitas informações sobre o ativo Bitcoin.
 * Endereço de depósito:[public_key]
 * Logo: [icon_url]
 * Nome do ativo:[name]
@@ -119,12 +119,12 @@ A API fornece muitas informaçõess sobre o ativo Bitcoin.
 
 
 ### Chave privada?
-Onde está a chave privada do Bitcoin? A chave privada é protegida por multi assinaturas dentro da Mixin Network e então é invísivel para o usuário. O ativo Bitcoin pode ser sacado somente para outro endereço quando o usuário fornece a correta assinatura RSA private key, código PIN and Session key.
+Onde está a chave privada do Bitcoin? A chave privada é protegida por multi-assinaturas dentro da Mixin Network e então é invisível para o usuário. O ativo Bitcoin pode ser sacado somente para outro endereço quando o usuário fornece a correta assinatura RSA private key, código PIN and Session key.
 
 ### Não apenas Bitcoin, mas também Ethereum, EOS
 A conta não contem somente uma carteira Bitcoin, mas também possui carteira para Ethereum, EOS, etc. [Lista](https://mixin.one/network/chains) completa de blockchains suportadas. Todos os tokens ERC20 e EOS são suportados pela conta.
 
-Criar a carteira de outro ativo é o mesma coisa do que criar uma de Bitcoin, apenas leia o ativo.
+Criar a carteira de outro ativo é au mesma coisa do que criar uma de Bitcoin, apenas leia o ativo.
 #### Criptomoedas suportadas pela Mixin Network (19/02/2019)
 
 |crypto |uuid in Mixin Network
@@ -172,14 +172,14 @@ Array
 ### Depositar Bitcoin e ler o balanço
 Agora você pode depositar Bitcoin no endereço de depósito.
 
-Isso talvez seja muito caro para este tutorial. Existe uma solução rápida e gratuita para depositar Bitcoin: adicione o endereço em seu endereço de saque na sua conta Mixin Messenger e saque uma pequena quantidade de Bitcoin de sua conta para o endereço. É grauito e confirmado instantaneamente porque ambos estão na Mixin Network.
+Isso talvez seja muito caro para este tutorial. Existe uma solução rápida e gratuita para depositar Bitcoin: adicione o endereço em seu endereço de saque na sua conta Mixin Messenger e saque uma pequena quantidade de Bitcoin de sua conta para o endereço. É gratuito e confirmado instantaneamente porque ambos estão na Mixin Network.
 
 Agora você pode ler o balanço de Bitcoin da conta.
 ```php
 $btc = $mixinSdkNew->Wallet()->readAsset("c6d0c728-2624-429b-8e0d-d9d19b6592fa");
 print_r($btc);
 ```
-### Envie Bitcoin dentro da Mixin Network para aproveitar confirmação instantanea e ZERO taxa de transação
+### Envie Bitcoin dentro da Mixin Network para aproveitar confirmação instantânea e ZERO taxa de transação
 Qualquer transação executada entre contas Mixin Network é gratuita e confirmada em 1 segundo.
 
 Pré-requisito: Um PIN foi criado para a conta
