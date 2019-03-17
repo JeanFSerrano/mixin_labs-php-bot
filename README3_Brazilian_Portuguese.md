@@ -414,4 +414,4 @@ function GenerateConfigByCSV($data) :array {
 
 
 ```
-[Código de fonte completo](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/call_apis.php)
+[Código fonte completo](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/call_apis.php)
