@@ -1,19 +1,22 @@
-# PHP Bitcoin tutorial based on Mixin Network III: Create Bitcoin wallet, read balance and send Bitcoin
-We have created a bot to [echo message](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README.md) and [echo Bitcoin](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README2.md).
+# PHP Bitcoin tutorial baseado na Mixin Network III: Criar uma carteira Bitcoin, ler o balanço e enviar Bitcoin
+![](https://github.com/wenewzhang/mixin_labs-php-bot/raw/master/Bitcoin_php.jpg)
 
-# What you will learn from this chapter
-1. How to create Bitcoin wallet
-2. How to read Bitcoin balance
-3. How to send Bitcoin with zero transaction fee and confirmed in 1 second
-4. How to send Bitcoin to other wallet
+Nós criamos um bot para [ecoar mensagem](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README.md) e [ecoar Bitcoin](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README2.md).
+
+### O que você aprenderá deste capítulo
+1. Como criar uma carteira Bitcoin
+2. Como ler o saldo de Bitcoin
+3. Como mandar Bitcoin com taxa de transação zero e confirmada em 1 segundo
+4. Como enviar Bitcoin para outra carteira
 
 
-Pre-request: You should have a Mixin Network account. Create an accounte can be done by one line code:
+Pré-requisito: Você deve ter uma conta no app Mixin Network. Criar uma conta pode ser feita por uma linha de código:
 
 ```php
 $user_info = $mixinSdkBot->Network()->createUser("Tom cat");
 ```
-The function in PHP SDK create a RSA key pair automatically, then call Mixin Network to create an account. last the function return all account information.
+A função em PHP SDK cria uma chave par RSA automaticamente, e então chama a Mixin Network para criar uma conta e retorna todas as informações da mesma.
+
 
 ```php
 //Create User api include all account information
@@ -26,7 +29,7 @@ $newConfig["session_id"]  = $user_info["session_id"];
 $newConfig["client_id"]   = $user_info["user_id"];
 ```
 
-Result of createUser is:
+O resultado do createUser é:
 ```php
 Array
 (
@@ -74,14 +77,14 @@ OGnv4SY6cLo/xFUf9fx0nmxfYXLzKE63vA9Ii5ZPq39bYK/2R5iKGvHn+OcTAQ2q
 )
 ```
 
-Now you need to carefully keep the account information. You need these information to read asset balance and other content.
-### Create Bitcoin wallet for the Mixin Network account
-The Bitcoin  wallet is not generated automatically at same time when we create Mixin Network account. Read Bitcoin asset once to generate a Bitcoin wallet.
+Agora você precisa manter as informações da conta cuidasosamente. Essas informações são exigidas para ler o balanço e outros conteúdos da conta
+### Criar uma carteira Bitcoin para a conta na Mixin Network
+A carteira de Bitcoin não é gerada automaticamente ao mesmo tempo quando nós criamos a conta na Mixin Network. Leia o Ativo Bitcoin uma vez para gerar a Carteira Bitcoin.
 ```php
 $asset_infoNew = $mixinSdkNew->Wallet()->readAsset("c6d0c728-2624-429b-8e0d-d9d19b6592fa");
 echo "BitCoin wallet address is :".$asset_infoNew["public_key"];
 ```
-You can found information about Bitcoin asset in the account. Public key is the Bitcoin deposit address. Full response of read  Bitcoin asset is
+Você pode achar a informação sobre o ativo Bitcoin na conta. A public key é o endereço de depósito de  Bitcoin. A resposta completa de Ler o ativo Bitcoin é:
 ```php
 Array
 (
@@ -106,22 +109,22 @@ Array
 ```
 
 
-The API provide many information about Bitcoin asset.
-* Deposit address:[public_key]
+A API fornece muitas informaçõess sobre o ativo Bitcoin.
+* Endereço de depósito:[public_key]
 * Logo: [icon_url]
-* Asset name:[name]
-* Asset uuid in Mixin network: [asset_key]
-* Price in USD from Coinmarketcap.com: [price_usd]
-* Least confirmed blocks before deposit is accepted by Mixin network:[confirmations]
+* Nome do ativo:[name]
+* Ativo uuid na Mixin network: [asset_key]
+* Preço em USD do Coinmarketcap.com: [price_usd]
+* Últimos blocos confirmados antes do depósito ser aceito pela Mixin Network:[confirmations]
 
 
-### Private key?
-Where is Bitcoin private key? The private key is protected by multi signature inside Mixin Network so it is invisible for user. Bitcoin asset can only be withdraw to other address when user provide correct RSA private key signature, PIN code and Session key.
+### Chave privada?
+Onde está a chave privada do Bitcoin? A chave privada é protegida por multi assinaturas dentro da Mixin Network então é invísivel para para o usuário. O ativo Bitcoin pode ser sacado somente para outro endereço quando o usuário fornece a correta assinatura RSA private key, código PIN and Session key.
 
-### Not only Bitcoin, but also Ethereum, EOS
-The account not only contain a Bitcoin wallet, but also contains wallet for Ethereum, EOS, etc. Full blockchain support [list](https://mixin.one/network/chains). All ERC20 Token and EOS token are supported by the account.
+### Não apenas Bitcoin, mas também Ethereum, EOS
+A conta não contéms somente uma carteira Bitcoin, mas também contém carteira para Ethereum, EOS, etc. [Lista] completa de blockchains suportadas (https://mixin.one/network/chains). Todos os tokens ERC20 e EOS são suportados pela conta.
 
-Create other asset wallet is same as create Bitcoin wallet, just read the asset.
+Criar a carteira de outro ativo é o mesma coisa do que criar uma de Bitcoin, apenas leia o ativo.
 #### Mixin Network support cryptocurrencies (2019-02-19)
 
 |crypto |uuid in Mixin Network
@@ -141,8 +144,8 @@ Create other asset wallet is same as create Bitcoin wallet, just read the asset.
 |ZEC|c996abc9-d94e-4494-b1cf-2a3fd3ac5714
 |BCH|fd11b6e3-0b87-41f1-a41f-f0e9b49e5bf0
 
-If you read EOS deposit address, the deposit address is composed of two parts: account_name and account tag. When you transfer EOS token to your account in Mixin network, you should fill both account name and memo. The memo content is value of 'account_tag'.
-Result of read EOS asset is:
+Se você ler o endereço de depósito EOS, o endereço de depósito é composto de duas partes: account_name e account tag. Quando você transfere token EOS para sua conta na Mixin Network, você deve preencher ambos account name and memo. O conteúdo memo é o valor de 'account_tag'.
+O resultado de ler o ativo EOS é:
 ```php
 Array
 (
@@ -166,29 +169,29 @@ Array
 )
 ```
 
-### Deposit Bitcoin and read balance
-Now you can deposit Bitcoin into the deposit address.
+### Depositar Bitcoin e ler o balanço
+Agora você pode depositar Bitcoin no endereço de depósito.
 
-This is maybe too expensive for this tutorial. There is a free and lightening fast solution to deposit Bitcoin: add the address in your Mixin messenger account withdrawal address and withdraw small amount Bitcoin from your account to the address. It is free and confirmed instantly because they are both on Mixin Network.
+Isso talvez seja muito caro para este tutorial. Existe uma solução rápida e gratuita para depositar Bitcoin: adicione o endereço em seu endereço de saque na sua conta Mixin Messenger e saque uma pequena quantidade de Bitcoin de sua conta para o endereço. É grauito e confirmado instantaneamente porque ambos estão na Mixin Network.
 
-Now you can read Bitcoin balance of the account.
+Agora você pode ler o balanço de Bitcoin da conta.
 ```php
 $btc = $mixinSdkNew->Wallet()->readAsset("c6d0c728-2624-429b-8e0d-d9d19b6592fa");
 print_r($btc);
 ```
-### Send Bitcoin inside Mixin Network to enjoy instant confirmation and ZERO transaction fee
-Any transaction happen between Mixin network account is free and is confirmed in 1 second.
+### Envie Bitcoin dentro da Mixin Network para aproveitar confirmação instantanea e ZERO taxa de transação
+Qualquer transação executada entre contas Mixin Network é gratuita e confirmada em 1 segundo.
 
-Pre-request: A PIN has been created for account
+Pré-requisito: Um PIN foi criado para a conta
 
-A PIN is required to send any asset in Mixin Network. Let's create pin for the account if it is missing.
+Um PIN é exigido para enviar qualquer ativo Mixin Network. Vamos criar um PIN para a conta se estiver faltando.
 ```php
 //Create a PIN.
 $pinInfo = $mixinSdkNew->Pin()->updatePin('',PIN);
 print_r($pinInfo);
 ```
-#### Send Bitcoin to another Mixin Network account
-We can send Bitcoin to our bot through Mixin Messenger, and then transfer Bitcoin from bot to new user.
+#### Enviar Bitcoin para outra conta na Mixin Network
+Nós podemos mandar Bitcoin para nosso bot através do Mixin Messenger, e então transferir Bitcoin do bot para um novo usuário.
 
 ```php
 $mixinSdkBot = new MixinSDK(require './config.php');
@@ -197,26 +200,26 @@ $trans_info = $mixinSdkBot->Wallet()->transfer(BTC_ASSET_ID,$user_info["user_id"
                                          $mixinSdkBot->getConfig()['default']['pin'],AMOUNT);
 ```
 
-Read bot's Bitcoin balance to confirm the transaction.
-Caution: **$mixinSdkNew** is for the New User!
+Leia o balanço de Bitcoin do bot para confirmar a transação.
+Cuidado: **$mixinSdkNew** é para o Novo Usuário!
 ```php
 $btc = $mixinSdkNew->Wallet()->readAsset("c6d0c728-2624-429b-8e0d-d9d19b6592fa");
 print_r($btc);
 ```
-### Send Bitcoin to another Bitcoin exchange or wallet
-If you want to send Bitcoin to another exchange or wallet, you need to know the destination deposit address, then add the address in withdraw address list of the Mixin network account.
+### Enviar Bitcoin para outra exchange de Bitcoin ou carteira
+Se você quer enviar Bitcoin para outra exchange ou carteira, você precisa saber o endereço de depósito destino, então adicione o endereço na lista de endereço de saque na conta da Mixin Network.
 
-Pre-request: Withdrawal address is added and know the Bitcoin withdrawal fee
+Pré-requisito: O endereço de saque é adicionado e sabe a taxa de saque de Bitcoin
 
-#### Add destination address to withdrawal address list
-Call createAddress, the ID of address will be returned in result of API and is required soon.
+#### Adicionar endereço de destino à lista de endereço de saque
+Chame createAddress, a ID do endereço será retornada em resultado da API e é exigida em breve.
 ```php
 $btcInfo = $mixinSdkNew->Wallet()->createAddress("c6d0c728-2624-429b-8e0d-d9d19b6592fa",
                                                     "14T129GTbXXPGXXvZzVaNLRFPeHXD1C25C",
                                                     $mixinSdkNew->getConfig()['default']['pin'],
                                                     "BTC withdral",false);
 ```
-The **14T129GTbXXPGXXvZzVaNLRFPeHXD1C25C** is a Bitcoin wallet address, Output like below, fee is 0.0025738 BTC, The API result contains the withdrawal address ID.                                                   
+O **14T129GTbXXPGXXvZzVaNLRFPeHXD1C25C** é um endereço de carteira Bitcoin, a saída segue abaixo, a taxa é 0.0025738 BTC, O resultado da API contém o ID do endereço de saque.                                           
 ```php
 Array
 (
@@ -235,22 +238,22 @@ Array
 ```
 
 
-#### Read withdraw fee anytime
+#### Leia a taxa de saque a qualquer hora
 ```php
 $wdInfo = $mixinSdkBot->Wallet()->readAddress($btcInfo["address_id"]);
 ```
 
-#### Send Bitcoin to destination address
-Submit the withdrawal request to Mixin Network, the $btcInfo["address_id"] is the address id return by createAddress
+#### Enviar Bitcoin para o endereço de destino
+Envie a solicitação de saque para a Mixin Network, o $btcInfo["address_id"] é o endereço de id retornado pelo createAddress
 ```php
 $wdInfo = $mixinSdkBot->Wallet()->withdrawal($btcInfo["address_id"],
                             "0.01",
                             $mixinSdkBot->getConfig()['default']['pin'],
                             "BTC withdral");
 ```
-#### Confirm the transaction in blockchain explore
+#### Confirme a transação no explorer da blockchain
 
-## Full example
+## Exemplo completo
 ```php
 <?php
 require __DIR__ . '/vendor/autoload.php';
@@ -411,4 +414,4 @@ function GenerateConfigByCSV($data) :array {
 
 
 ```
-[Full source code](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/call_apis.php)
+[Código de fonte completo](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/call_apis.php)
