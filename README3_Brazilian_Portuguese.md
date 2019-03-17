@@ -144,7 +144,7 @@ Criar a carteira de outro ativo é o mesma coisa do que criar uma de Bitcoin, ap
 |ZEC|c996abc9-d94e-4494-b1cf-2a3fd3ac5714
 |BCH|fd11b6e3-0b87-41f1-a41f-f0e9b49e5bf0
 
-Se você ler o endereço de depósito EOS, o endereço de depósito é composto de duas partes: account_name e account tag. Quando você transfere token EOS para sua conta na Mixin Network, você deve preencher ambos account name and memo. O conteúdo memo é o valor de 'account_tag'.
+Se você ler o endereço de depósito EOS, o endereço de depósito é composto de duas partes: account_name e account tag. Quando você transfere token EOS para sua conta na Mixin Network, você deve preencher ambos account name e memo. O conteúdo memo é o valor de 'account_tag'.
 O resultado de ler o ativo EOS é:
 ```php
 Array
