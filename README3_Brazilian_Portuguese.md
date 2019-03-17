@@ -125,7 +125,7 @@ Onde está a chave privada do Bitcoin? A chave privada é protegida por multi as
 A conta não contem somente uma carteira Bitcoin, mas também possui carteira para Ethereum, EOS, etc. [Lista](https://mixin.one/network/chains) completa de blockchains suportadas. Todos os tokens ERC20 e EOS são suportados pela conta.
 
 Criar a carteira de outro ativo é o mesma coisa do que criar uma de Bitcoin, apenas leia o ativo.
-#### Mixin Network support cryptocurrencies (2019-02-19)
+#### Criptomoedas suportadas pela Mixin Network (19/02/2019)
 
 |crypto |uuid in Mixin Network
 |---|---
