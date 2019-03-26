@@ -12,7 +12,7 @@ A ExinCore não sabe quem você é porque a ExinCore sabe apenas seu uuid de cli
 Você deve ter criado um bot baseado na Mixin Network. Crie um lendo [PHP Bitcoin tutorial](https://github.com/wenewzhang/mixin_labs-php-bot).
 
 #### Instale os pacotes exigidos
-Como você sabe, nós apresentamos a você o mixin-sdk-php no [cápitulo 1](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README.md), suponha que foi instalado antes, vamos instalar o **uuid, msgpack** aqui.
+Como você sabe, nós apresentamos a você o mixin-sdk-php no [cápitulo 1](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README.md), supondo que foi instalado antes, vamos instalar o **uuid, msgpack** aqui.
 ```bash
   composer require ramsey/uuid
   composer require rybakit/msgpack
