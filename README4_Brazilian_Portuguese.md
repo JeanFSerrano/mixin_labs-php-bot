@@ -17,7 +17,7 @@ Como você sabe, nós apresentamos a você o mixin-sdk-php no [cápitulo 1](http
   composer require ramsey/uuid
   composer require rybakit/msgpack
 ```
-#### Deposite USDT ou Bitcoin na sua conta Mixin Network e leia o balanço
+#### Deposite USDT ou Bitcoin na sua conta Mixin Network e leia o saldo
 ExinCore pode cambiar entre Bitcoin, USDT, EOS, Eth etc. Aqui te mostra como cambiar entre USDT e Bitcoin,
 Verifique o saldo e endereço da carteira antes de fazer a ordem.
 
