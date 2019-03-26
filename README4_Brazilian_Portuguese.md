@@ -1,4 +1,4 @@
-# Como negociar bitcoin atarvés da linguagem PHP
+# Como negociar bitcoin através da linguagem PHP
 ![](https://github.com/wenewzhang/mixin_labs-php-bot/raw/master/Bitcoin_php.jpg)
 
 ## Solução um: pague para a API ExinCore
