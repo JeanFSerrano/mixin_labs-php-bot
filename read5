@@ -1,10 +1,10 @@
 # Como negociar bitcoin através de PHP
 ![](https://github.com/wenewzhang/mixin_labs-php-bot/raw/master/Bitcoin_php.jpg)
 
-Exincore foi introduzido no [úlltimo capítulo](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README4.md), você pode trocar muitos crypto ativos a preço de mercado e receber seu ativo em 1 segundo. Se você quer negociar ativos a um preço limitado, ou negociar ativos não suportados pela ExinCore no momento, OceanOne é a resposta.
+Exincore foi introduzido no [último capítulo](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README4.md), você pode trocar muitos cripto ativos a preço de mercado e receber seu ativo em 1 segundo. Se você quer negociar ativos a um preço limitado, ou negociar ativos não suportados pela ExinCore no momento, OceanOne é a resposta.
 
 ## Solução Dois: Liste sua ordem na Ocean.One exchange
-[Ocean.one](https://github.com/mixinNetwork/ocean.one) é uma exchange descentralizada construída na Mixin Network, é quase a primeira vez que uma exchange descentralizada obtem a mesma experiencia de usuário do que uma centralizada.
+[Ocean.one](https://github.com/mixinNetwork/ocean.one) é uma exchange descentralizada construída na Mixin Network, é quase a primeira vez que uma exchange descentralizada obtêm a mesma experiência de usuário do que uma centralizada.
 
 Você pode listar qualquer ativo na OceanOne. Pague o ativo que você quer vender para a conta OceanOne, escreva seu pedido no memo de pagamento, OceanOne listará sua ordem no mercado. Ela enviará o ativo para sua carteira após que sua ordem for correspondida.
 
@@ -12,11 +12,11 @@ Você pode listar qualquer ativo na OceanOne. Pague o ativo que você quer vende
 * Não é necessário depósito.
 * Sem processo de listagem.
 
-### Pre-requisito:
+### Pré-requisito:
 Você deve ter criado um bot baseado na Mixin Network. Crie um lendo [PHP Bitcoin tutorial](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README.md).
 
 #### Instale pacotes necessários
-[Capitulo 4](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README4.md) apresenta [**mixin-sdk-php**](https://packagist.org/packages/exinone/mixin-sdk-php) para você, assumindo que foi instalado antes.
+[Capítulo 4](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README4.md) apresenta [**mixin-sdk-php**](https://packagist.org/packages/exinone/mixin-sdk-php) para você, assumindo que foi instalado antes.
 
 #### Deposite USDT ou Bitcoin na sua conta Mixin Network e leia o saldo
 A Ocean.one pode corresponder qualquer ordem. Aqui nós cambiamos entre USDT e Bitcoin, Cheque o saldo da carteira & endereço antes de você fazer a ordem.
@@ -131,7 +131,7 @@ if ( $ocmd == 'b1') {
 }
 ```
 
-Uma ordem bem sucedida tem a saída como baixo:
+Uma ordem bem sucedida tem a saída conforme abaixo:
 ```bash
 Input the Price of XIN/USDT: 112
 Input the Amount of USDT: 1
@@ -173,7 +173,7 @@ The Order ID (trace_id) is: b12eed67-6cf4-481f-b25b-dd41f28e1984
 ```
 ## Cancelar a ordem
 Para cancelar uma ordem, apenas pague qualquer quantidade de qualquer ativo para a OceanOne, e escreva trace_id no memo. Ocean.one pega o trace_id como o id da ordem, por exemplo, **b12eed67-6cf4-481f-b25b-dd41f28e1984** é um id de ordem,
-Nós podemos usá-lo para canccelar a ordem.
+Nós podemos usá-lo para cancelar a ordem.
 
 ```php
 if ( $ocmd == 'c' ) {
