@@ -1,31 +1,31 @@
 # Como negociar bitcoin através de PHP
 ![](https://github.com/wenewzhang/mixin_labs-php-bot/raw/master/Bitcoin_php.jpg)
 
-Exincore foi introduzido no [úlltimo capítulo](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README4.md), você pode trocar muitos crypto ativos a preço de mercado e receber seu ativo em 1 segundo. Se você quer negociar ativos a um preço limitado, ou negociar ativos não é suportado pela ExinCore no momento, OceanOne é a resposta.
+Exincore foi introduzido no [úlltimo capítulo](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README4.md), você pode trocar muitos crypto ativos a preço de mercado e receber seu ativo em 1 segundo. Se você quer negociar ativos a um preço limitado, ou negociar ativos não suportados pela ExinCore no momento, OceanOne é a resposta.
 
-## Solution Two: List your order on Ocean.One exchange
-[Ocean.one](https://github.com/mixinNetwork/ocean.one) is a decentralized exchange built on Mixin Network, it's almost the first time that a decentralized exchange gain the same user experience as a centralized one.
+## Solução Dois: Liste sua ordem na Ocean.One exchange
+[Ocean.one](https://github.com/mixinNetwork/ocean.one) é uma exchange descentralizada construída na Mixin Network, é quase a primeira vez que uma exchange descentralizada obtem a mesma experiencia de usuário do que uma centralizada.
 
-You can list any asset on OceanOne. Pay the asset you want to sell to OceanOne account, write your request in payment memo, OceanOne will list your order to market. It send asset to your wallet after your order is matched.
+Você pode listar qualquer ativo na OceanOne. Pague o ativo que você quer vender para a conta OceanOne, escreva seu pedido no memo de pagamento, OceanOne listará sua ordem no mercado. Ela enviará o ativo para sua carteira após que sua ordem for correspondida.
 
-* No sign up required
-* No deposit required
-* No listing process.
+* Não é necessário cadastro
+* Não é necessário depósito.
+* Sem processo de listagem.
 
-### Pre-request:
-You should  have created a bot based on Mixin Network. Create one by reading [PHP Bitcoin tutorial](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README.md).
+### Pre-requisito:
+Você deve ter criado um bot baseado na Mixin Network. Crie um lendo [PHP Bitcoin tutorial](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README.md).
 
-#### Install required packages
-[Chapter 4](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README4.md) introduce [**mixin-sdk-php**](https://packagist.org/packages/exinone/mixin-sdk-php) to you, assume it has installed before.
+#### Instale pacotes necessários
+[Capitulo 4](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README4.md) apresenta [**mixin-sdk-php**](https://packagist.org/packages/exinone/mixin-sdk-php) para você, assumindo que foi instalado antes.
 
-#### Deposit USDT or Bitcoin into your Mixin Network account and read balance
-The Ocean.one can match any order. Here we exchange between USDT and Bitcoin, Check the wallet's balance & address before you make order.
+#### Deposite USDT ou Bitcoin na sua conta Mixin Network e leia o saldo
+A Ocean.one pode corresponder qualquer ordem. Aqui nós cambiamos entre USDT e Bitcoin, Cheque o saldo da carteira & endereço antes de você fazer a ordem.
 
-- Check the address & balance, find it's Bitcoin wallet address.
-- Deposit Bitcoin to this Bitcoin wallet address.
-- Check Bitcoin balance after 100 minutes later.
+- Cheque o endereço e saldo, ache seu endereço de carteira Bitcoin.
+- Deposite Bitcoin nesse endereço de carteira Bitcoin.
+- Cheque o saldo de Bitcoin após 100 minutos ou mais.
 
-**Omni USDT address is same as Bitcoin address**
+**O endereço Omni USDT é o mesmo que o endereço Bitcoin**
 
 ```php
   const BTC_ASSET_ID     = "c6d0c728-2624-429b-8e0d-d9d19b6592fa";
@@ -38,8 +38,8 @@ The Ocean.one can match any order. Here we exchange between USDT and Bitcoin, Ch
   print_r("Bitcoin wallet balance is :".$asset_info["balance"]."\n");
 ```
 
-#### Read orders book from Ocean.one
-How to check the coin's price? You need understand what is the base coin. If you want buy Bitcoin and sell USDT, the USDT is the base coin. If you want buy USDT and sell Bitcoin, the Bitcoin is the base coin.
+#### Leia o livro de ordens da Ocean.one
+Como verificar o preço da moeda? Você precisa entender qual é a moeda base. Se você quer comprar Bitcoin e vender USDT, o USDT é a moeda base. Se você quer comprar USDT e vender Bitcoin, o Bitcoin é a moeda base.
 
 
 ```php
@@ -63,11 +63,11 @@ function getOceanOneMarketInfos($targetCoin, $baseCoin)  {
 }
 ```
 
-#### Create a memo to prepare order
-The chapter two: [Echo Bitcoin](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README2.md) introduce transfer coins. But you need to let Ocean.one know which coin you want to buy.
-- **side** "B" or "A", "B" for buy, "A" for Sell.
-- **asset** UUID of the asset you want to buy
-- **price** If Side is "B", Price is AssetUUID; if Side is "A", Price is the asset which transfer to Ocean.one.
+#### Crie um memo para preparar a ordem
+O capítulo dois: [Echo Bitcoin](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/README2.md) apresenta transferência de moedas. Mas você precisa deixar a Ocean.one saber qual moeda você deseja comprar.
+- **side** "B" ou "A", "B" para compra, "A" para Venda.
+- **asset** UUID do ativo que você quer comprar
+- **price** Se Side é "B", Price é AssetUUID; se Side é "A", Price é o ativo que transfere para a Ocean.one.
 
 ```php
 function GenerateOrderMemo($side, $asset, $price) :string {
@@ -81,8 +81,8 @@ function GenerateOrderMemo($side, $asset, $price) :string {
 }
 ```
 
-#### Pay BTC to OceanOne with generated memo
-Transfer Bitcoin(BTC_ASSET_ID) to Ocean.one(OCEANONE_BOT), put you target asset uuid(USDT) in the memo.
+#### Pague BTC para a OceanOne com o memo gerado
+Transfira Bitcoin(BTC_ASSET_ID) para a Ocean.one(OCEANONE_BOT), coloque seu ativo alvo uuid(USDT) no memo.
 
 ```php
 const OCEANONE_BOT     = "aaff5bef-42fb-4c9f-90e0-29f69176b7d4";
@@ -108,7 +108,7 @@ if ( $ocmd == 's1') {
 }
 ```
 
-If you want buy XIN, call it like below:
+Se você quer comprar XIN, chame-o como abaixo:
 
 ```php
 if ( $ocmd == 'b1') {
@@ -131,7 +131,7 @@ if ( $ocmd == 'b1') {
 }
 ```
 
-A success order output like below:
+Uma ordem bem sucedida tem a saída como baixo:
 ```bash
 Input the Price of XIN/USDT: 112
 Input the Amount of USDT: 1
@@ -171,9 +171,9 @@ Array
 )
 The Order ID (trace_id) is: b12eed67-6cf4-481f-b25b-dd41f28e1984
 ```
-## Cancel the Order
-To cancel order, just pay any amount of any asset to OceanOne, and write trace_id into memo. Ocean.one take the trace_id as the order id, for example, **b12eed67-6cf4-481f-b25b-dd41f28e1984** is a order id,
-We can use it to cancel the order.
+## Cancelar a ordem
+Para cancelar uma ordem, apenas pague qualquer quantidade de qualquer ativo para a OceanOne, e escreva trace_id no memo. Ocean.one pega o trace_id como o id da ordem, por exemplo, **b12eed67-6cf4-481f-b25b-dd41f28e1984** é um id de ordem,
+Nós podemos usá-lo para canccelar a ordem.
 
 ```php
 if ( $ocmd == 'c' ) {
@@ -194,8 +194,8 @@ if ( $ocmd == 'c' ) {
   }
 }
 ```
-#### Read Bitcoin balance
-Check the wallet's balance.
+#### Leia o saldo de Bitcoin
+Cheque o saldo da carteira
 ```php
 if ($line == 'aw') {
   $mixinSdk_eachAccountInstance = GenerateWalletSDKFromCSV();
@@ -207,24 +207,24 @@ if ($line == 'aw') {
 }
 ```
 
-## Source code usage
-Build it and then run it.
+## Uso do código fonte
+Construa e execute-o
 
 - **php bitcoin_wallet.php** run it.
 
-Commands of trade with OceanOne:
+Comandos de negociação com a OceanOne:
 
 - o: Ocean.One Exchange
-- q: Exit
+- q: Sair
 
-Make your choose(eg: q for Exit!):
+Faça sua escolha(eg: q para Sair!):
 
-- 1:  Fetch XIN/USDT orders
-- s1: Sell XIN/USDT
-- b1: Buy XIN/USDT
-- 2:  Fetch ERC20(Benz)/USDT orders
-- s2: Sell Benz/USDT
-- b2: Buy Benz/USDT
-- q:  Exit
+- 1:  Buscar ordens de XIN/USDT
+- s1: Vender XIN/USDT
+- b1: Comprar XIN/USDT
+- 2:  Buscar ordens ERC20(Benz)/USDT
+- s2: Vender Benz/USDT
+- b2: Comprar Benz/USDT
+- q:  Sair
 
-[Full source code](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/bitcoin_wallet.php)
+[Código fonte completo](https://github.com/wenewzhang/mixin_labs-php-bot/blob/master/bitcoin_wallet.php)
